@@ -75,7 +75,7 @@ const Page = () => {
                 <img
                   src={path || '/placeholder.svg'}
                   alt={`Anniversary Photo ${index + 1}`}
-                  className='w-[300px] h-64 object-cover rounded-lg shadow-lg'
+                  className='w-[200px] h-60 object-cover rounded-lg shadow-lg'
                 />
               </div>
             ))}
