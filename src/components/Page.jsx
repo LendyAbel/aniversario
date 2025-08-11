@@ -78,6 +78,9 @@ const Page = () => {
             ))}
           </motion.div>
         </div>
+        <p className='text-1xl font-bold text-red-600 md:text-2xl lg:text-2xl text-center'>
+          ¡Que nuestro amor siga creciendo cada día! Otro año juntos, ¡y los que nos quedan!
+        </p>
       </motion.div>
     </AnimatePresence>
   )

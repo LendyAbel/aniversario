@@ -3,7 +3,7 @@ import Particles from './Particles'
 const ParticlesBackground = () => {
   return (
     <>
-      <div style={{ width: '100%', height: '600px', position: 'relative' }}>
+      <div style={{ width: '100%', height: '100%', position: 'relative' }}>
         <Particles
           particleColors={['#FF3B3B', '#FF3B3B']}
           particleCount={200}

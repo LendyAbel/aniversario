@@ -22,7 +22,8 @@ const HeartComp = ({ isOpen, setIsOpen }) => {
           }}
         >
           <Heart className="inset-0 h-full w-full fill-red-500 text-red-500 animate-pulse" />
-          <span className="sr-only">Click this heart to reveal a surprise!</span>
+
+          <p className="absolute inset-0 flex items-center justify-center text-center text-lg font-semibold text-white pointer-events-none" >Haz click</p>
         </motion.button>
       )}
     </AnimatePresence>

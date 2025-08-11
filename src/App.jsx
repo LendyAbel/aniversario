@@ -10,7 +10,7 @@ function App() {
     <>
       <div className='relative h-screen w-screen overflow-hidden'>
         {/* Particles background layer */}
-        <div className='absolute inset-0 z-0 h-screen'>
+        <div className='absolute inset-0 z-0 h-screen '>
           <ParticlesBackground />
         </div>
         <div className='z-10 h-screen relative flex flex-col items-center justify-center p-4'>
