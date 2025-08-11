@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <div className='relative h-screen w-screen overflow-hidden'>
+      <div className='relative h-screen w-screen overflow-hidden bg-gradient-to-br from-pink-100 via-red-100 to-yellow-100'>
         {/* Particles background layer */}
         <div className='absolute inset-0 z-0 h-screen '>
           <ParticlesBackground />
