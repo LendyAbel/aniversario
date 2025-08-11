@@ -7,6 +7,9 @@ const photoPaths = [
   '/images/foto3.jpg',
   '/images/foto4.jpg',
   '/images/foto5.jpg',
+  '/images/foto6.jpg',
+  '/images/foto7.jpg',
+  '/images/foto8.jpg',
 ]
 
 const Page = () => {
