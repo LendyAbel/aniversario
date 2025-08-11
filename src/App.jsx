@@ -7,10 +7,8 @@ function App() {
 
   return (
     <>
-    
       <div className='h-screen relative flex flex-col items-center justify-center p-4'>
-        <HeartComp setIsOpen={setIsOpen} />
-        {isOpen && <Page/>}
+        {isOpen ? <Page /> : <HeartComp setIsOpen={setIsOpen} />}
       </div>
     </>
   )

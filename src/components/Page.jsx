@@ -1,12 +1,12 @@
-import Image from 'next/image'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { motion } from "framer-motion"
 
 const photoPaths = [
-  '/images/foto1.png',
-  '/images/foto2.png',
-  '/images/foto3.png',
-  '/images/foto4.png',
-  '/images/foto5.png',
+  '/images/foto1.jpg',
+  '/images/foto2.jpg',
+  '/images/foto3.jpg',
+  '/images/foto4.jpg',
+  '/images/foto5.jpg',
 ]
 
 const Page = () => {
@@ -23,7 +23,7 @@ const Page = () => {
     let interval = null
     interval = setInterval(() => {
       setCurrentPhotoIndex(prevIndex => (prevIndex + 1) % numPhotos)
-    }, 1000)
+    }, 1500)
     return () => {
       if (interval) clearInterval(interval)
     }
@@ -43,9 +43,9 @@ const Page = () => {
   }
 
   return (
-    <div className='flex flex-col items-center space-y-8 w-full max-w-4xl'>
+    <div className='flex flex-col items-center space-y-8 w-full max-w-4xl gap-10'>
       <h1 className='text-4xl font-bold text-red-600 md:text-5xl lg:text-6xl text-center'>
-        Happy Anniversary, My Love!
+        Feliz aniversario, mi amor!!!
       </h1>
 
       <div className='relative w-full h-80 flex items-center justify-center' style={{ perspective: '1000px' }}>
