@@ -3,15 +3,14 @@ import HeartComp from './components/HeartComp'
 import Page from './components/Page'
 
 function App() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <>
-      <div className='h-screen relative flex flex-col items-center justify-center p-4'>
-        {isOpen ? <Page /> : <HeartComp setIsOpen={setIsOpen} />}
-      </div>
-    </>
-  )
+    <div className='h-screen relative flex flex-col items-center justify-center p-4'>
+      <HeartComp isOpen={isOpen} setIsOpen={setIsOpen} />
+      {isOpen && <Page />}
+    </div>
+  );
 }
 
 export default App

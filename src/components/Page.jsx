@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from 'framer-motion'
 
 const photoPaths = [
   '/images/foto1.jpg',
@@ -16,14 +16,14 @@ const Page = () => {
   const numPhotos = photoPaths.length
   const anglePerPhoto = 360 / numPhotos
 
-  const photoWidth = 300
+  const photoWidth = 310
   const radius = Math.round(photoWidth / 2 / Math.tan(Math.PI / numPhotos))
 
   useEffect(() => {
     let interval = null
     interval = setInterval(() => {
       setCurrentPhotoIndex(prevIndex => (prevIndex + 1) % numPhotos)
-    }, 1500)
+    }, 2000)
     return () => {
       if (interval) clearInterval(interval)
     }
@@ -43,37 +43,43 @@ const Page = () => {
   }
 
   return (
-    <div className='flex flex-col items-center space-y-8 w-full max-w-4xl gap-10'>
-      <h1 className='text-4xl font-bold text-red-600 md:text-5xl lg:text-6xl text-center'>
-        Feliz aniversario, mi amor!!!
-      </h1>
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1, transition: { duration: 2, ease: 'easeOut' } }}
+        className='flex flex-col items-center space-y-8 w-full max-w-4xl gap-10'
+      >
+        <h1 className='text-4xl font-bold text-red-600 md:text-5xl lg:text-6xl text-center'>
+          Feliz aniversario, mi amor!!!
+        </h1>
 
-      <div className='relative w-full h-80 flex items-center justify-center' style={{ perspective: '1000px' }}>
-        <motion.div
-          ref={carouselRef}
-          className='relative w-full h-full preserve-3d'
-          variants={carouselVariants}
-          initial='initial'
-          animate='animate'
-        >
-          {photoPaths.map((path, index) => (
-            <div
-              key={index}
-              className='absolute w-full h-full flex items-center justify-center backface-hidden'
-              style={{
-                transform: `rotateY(${index * anglePerPhoto}deg) translateZ(${radius}px)`,
-              }}
-            >
-              <img
-                src={path || '/placeholder.svg'}
-                alt={`Anniversary Photo ${index + 1}`}
-                className='w-[300px] h-64 object-cover rounded-lg shadow-lg'
-              />
-            </div>
-          ))}
-        </motion.div>
-      </div>
-    </div>
+        <div className='relative w-full h-80 flex items-center justify-center' style={{ perspective: '1000px' }}>
+          <motion.div
+            ref={carouselRef}
+            className='relative w-full h-full preserve-3d'
+            variants={carouselVariants}
+            initial='initial'
+            animate='animate'
+          >
+            {photoPaths.map((path, index) => (
+              <div
+                key={index}
+                className='absolute w-full h-full flex items-center justify-center backface-hidden'
+                style={{
+                  transform: `rotateY(${index * anglePerPhoto}deg) translateZ(${radius}px)`,
+                }}
+              >
+                <img
+                  src={path || '/placeholder.svg'}
+                  alt={`Anniversary Photo ${index + 1}`}
+                  className='w-[300px] h-64 object-cover rounded-lg shadow-lg'
+                />
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </motion.div>
+    </AnimatePresence>
   )
 }
 
